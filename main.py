@@ -10,12 +10,11 @@ print("Files and directories in '", labels_path, "' :")
 
 print(dir_list)
 
-for i in range(107):
-    txt_path = os.path.join(labels_path, dir_list[i])
+for file_name in dir_list:
+    txt_path = os.path.join(labels_path, file_name)
     print(f"txt_path: {txt_path}")
 
     with open(txt_path, mode="r") as f:
-        print(f)
         first_line = f.readline()
 
     modified_label = first_line.replace('-1', '0', 1)
