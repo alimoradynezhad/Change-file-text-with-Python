@@ -1,6 +1,8 @@
 import os  # library
 from argparse import ArgumentParser
 
+#char = int(input("please inter number for change object"))
+
 parser = ArgumentParser()
 parser.add_argument("--labels_path", required=True, help="Path to labels' directory")
 args = parser.parse_args()
@@ -12,14 +14,22 @@ print("-----------------------------------------")
 print("Files and directories in '", labels_path, "' :")
 print(dir_list)
 
+
+
 for file_name in dir_list:
     txt_path = os.path.join(labels_path, file_name)
     print(f"txt_path: {txt_path}")
 
     with open(txt_path, mode="r") as f:
-        first_line = f.readline()
+        first_line = f.read()
 
-    modified_label = first_line.replace('-1', '0', 1)
+
+    with open(txt_path, mode="r") as f:
+        x = len(f.readlines())
+        print(x)
+
+
+    modified_label = first_line.replace('-1', '0', x)
     with open(txt_path, mode="w") as f:
         f.write(modified_label)
 print(f"Successfully processed labels in {labels_path} directory")
