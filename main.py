@@ -1,5 +1,5 @@
 import os  # library
-from argparse import ArgumentParser
+from argparse import ArgumentParser,
 
 #char = int(input("please inter number for change object"))
 
